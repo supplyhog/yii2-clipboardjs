@@ -32,3 +32,7 @@ Install this extension via [composer](http://getcomposer.org/download). Add this
 ]) ?>
 
 ```
+
+## Just the Asset?
+
+Yes, you can use just the asset. ```php \supplyhog\ClipboardJs\ClipboardJsAsset::register($view)``` It will auto init anything with the "clipboard-js-init" class.

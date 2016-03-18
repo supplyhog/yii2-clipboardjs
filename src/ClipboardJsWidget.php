@@ -26,6 +26,8 @@ class ClipboardJsWidget extends Widget
 	 */
 	public $label = 'Copy to clipboard';
 
+	public $successText = 'Copied';
+
 	/**
 	 * @var array
 	 */
@@ -45,7 +47,7 @@ class ClipboardJsWidget extends Widget
 
 	public function init()
 	{
-		if(!isset($this->text, $this->inputId)) {
+		if(!isset($this->text) && !isset($this->inputId)) {
 			throw new InvalidConfigException('"text" or "inputId" must be set for the ClipboardJsWidget.');
 		}
 		if(isset($this->inputId) && substr($this->inputId, 0, 1) !== '#') {
@@ -66,6 +68,9 @@ class ClipboardJsWidget extends Widget
 			if($this->cut) {
 				$options['data']['clipboard-action'] = 'cut';
 			}
+		}
+		if($this->successText) {
+			$options['data']['clipboard-success'] = $this->successText;
 		}
 		Html::addCssClass($options, 'clipboard-js-init');
 
