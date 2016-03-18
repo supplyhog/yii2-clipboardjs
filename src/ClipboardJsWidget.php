@@ -61,6 +61,7 @@ class ClipboardJsWidget extends Widget
 	public function run()
 	{
 		$options = $this->htmlOptions;
+		$options['data']['clipboard-action'] = 'copy';
 		if(isset($this->text)) {
 			$options['data']['clipboard-text'] = $this->text;
 		} elseif(isset($this->inputId)) {
