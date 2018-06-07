@@ -8,10 +8,24 @@
     ],
     "license": "BSD-3-Clause",
     "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "zenorocha/clipboard.js",
+                "version": "master",
+                "source": {
+                    "url": "https://github.com/zenorocha/clipboard.js",
+                    "type": "git",
+                    "reference": "v2.0.1"
+                }
+            }
+        }
+    ],
     "require": {
         "php" : ">=5.4.0",
         "yiisoft/yii2" : "*",
-        "bower-asset/clipboard": "^1.5"
+        "zenorocha/clipboard.js": "dev-master"
     },
     "autoload": {
         "psr-4": {
