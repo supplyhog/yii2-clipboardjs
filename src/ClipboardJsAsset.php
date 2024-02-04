@@ -19,10 +19,14 @@ class ClipboardJsAsset extends AssetBundle
 		$view->registerJs("
 		var clipboard = new Clipboard('.clipboard-js-init');
 		clipboard.on('success', function(e) {
-            if(typeof e.trigger.dataset.clipboardSuccess !== 'undefined') {
-              var reset = e.trigger.innerHTML;
-              setTimeout(function(){e.trigger.innerHTML = reset;}, 5000);
-              e.trigger.innerHTML = e.trigger.dataset.clipboardSuccess;
+            if (typeof e.trigger.dataset.clipboardSuccess !== 'undefined') {
+                var reset = e.trigger.innerHTML;
+                setTimeout(function(){
+                    e.trigger.innerHTML = reset;
+                    e.trigger.classList.remove('clipboard-success');
+                }, 5000);
+                e.trigger.innerHTML = e.trigger.dataset.clipboardSuccess;
+                e.trigger.classList.add('clipboard-success');
             }
 		});
 		clipboard.on('error', function(e) {
